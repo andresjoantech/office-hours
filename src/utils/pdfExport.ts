@@ -19,22 +19,20 @@ export async function exportSignToPdf(element: HTMLElement, _professor: Professo
   });
 
   const pdfWidth = pdf.internal.pageSize.getWidth();
-  const pdfHeight = pdf.internal.pageSize.getHeight();
   const imgWidth = canvas.width;
   const imgHeight = canvas.height;
 
-  // Calculate scaling to fit page with margins
+  // Calculate scaling to fit page width with margins
   const margin = 0.5;
   const availableWidth = pdfWidth - 2 * margin;
-  const availableHeight = pdfHeight - 2 * margin;
 
-  const scale = Math.min(availableWidth / (imgWidth / 96), availableHeight / (imgHeight / 96));
+  const scale = availableWidth / (imgWidth / 96);
   const scaledWidth = (imgWidth / 96) * scale;
   const scaledHeight = (imgHeight / 96) * scale;
 
-  // Center on page
+  // Center horizontally, align to top
   const x = (pdfWidth - scaledWidth) / 2;
-  const y = (pdfHeight - scaledHeight) / 2;
+  const y = margin;
 
   pdf.addImage(imgData, 'PNG', x, y, scaledWidth, scaledHeight);
 
