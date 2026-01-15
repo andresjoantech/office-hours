@@ -121,12 +121,11 @@ const SignCard = forwardRef<HTMLDivElement, SignCardProps>(
             fontFamily: 'Georgia, serif',
           }}
         >
-          {/* Header with FIU branding */}
-          <div className="text-center border-b-4 border-[#B6862C] pb-6 mb-6">
-            <h1 className="text-4xl font-bold text-[#081E3F] tracking-wide mb-2">
-              FLORIDA INTERNATIONAL UNIVERSITY
+          {/* Header with Department branding */}
+          <div className="text-center border-b-2 border-[#B6862C] pb-4 mb-6">
+            <h1 className="text-2xl font-bold text-[#081E3F] tracking-wide">
+              Department of Teaching and Learning
             </h1>
-            <div className="h-1 bg-[#B6862C] w-32 mx-auto"></div>
           </div>
 
           {/* Professor Name */}
@@ -219,7 +218,7 @@ const SignCard = forwardRef<HTMLDivElement, SignCardProps>(
                 </label>
               ) : (
                 displayData.byAppointment && (
-                  <p className="text-lg italic text-[#081E3F] bg-[#B6862C]/10 inline-block px-6 py-2 rounded-lg">
+                  <p className="text-lg italic text-[#081E3F] inline-block px-6 py-2 rounded-lg" style={{ backgroundColor: 'rgba(182, 134, 44, 0.1)' }}>
                     I will also offer Office Hours by appointment
                   </p>
                 )
@@ -255,7 +254,7 @@ const SignCard = forwardRef<HTMLDivElement, SignCardProps>(
           {/* Footer */}
           <div className="mt-8 pt-4 border-t border-gray-200 text-center">
             <p className="text-sm text-gray-500">
-              College of Engineering and Computing
+              Department of Teaching and Learning
             </p>
           </div>
         </div>

@@ -152,7 +152,7 @@ export default function ManualForm({ onSubmit, initialData }: ManualFormProps) {
           value={formData.officeLocation}
           onChange={(e) => updateField('officeLocation', e.target.value)}
           className={inputClasses('officeLocation')}
-          placeholder="Engineering Center, Room 3456"
+          placeholder="ZEB XXX"
         />
         <p className="text-gray-500 text-sm mt-1">
           Building and room number. If you don&apos;t have an office, specify where Office Hours will be held.

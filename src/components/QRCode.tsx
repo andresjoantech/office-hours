@@ -30,8 +30,8 @@ export default function QRCode({ url, size = 120, className = '' }: QRCodeProps)
   return (
     <div className={`flex flex-col items-center ${className}`}>
       <canvas ref={canvasRef} />
-      <p className="text-xs text-gray-500 mt-1 text-center max-w-[150px] break-words">
-        Scan for online meeting link
+      <p className="text-xs text-gray-600 mt-1 text-center max-w-[200px] break-all">
+        {url}
       </p>
     </div>
   );
