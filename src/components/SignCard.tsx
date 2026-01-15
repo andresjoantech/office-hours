@@ -133,10 +133,7 @@ const SignCard = forwardRef<HTMLDivElement, SignCardProps>(
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                backgroundColor: '#081E3F',
-                color: '#ffffff',
-                padding: '16px 40px',
-                borderRadius: '8px',
+                color: '#B6862C',
                 fontSize: '1.5rem',
                 fontWeight: '600',
                 lineHeight: '1.2',
@@ -152,7 +149,7 @@ const SignCard = forwardRef<HTMLDivElement, SignCardProps>(
                     type="text"
                     value={editData.semester}
                     onChange={(e) => updateField('semester', e.target.value)}
-                    style={{ ...editInputStyle, color: '#000000', marginLeft: '8px' }}
+                    style={{ ...editInputStyle, color: '#B6862C', marginLeft: '8px' }}
                   />
                 </>
               ) : (
