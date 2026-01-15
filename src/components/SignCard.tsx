@@ -123,31 +123,33 @@ const SignCard = forwardRef<HTMLDivElement, SignCardProps>(
 
           {/* Office Hours Title */}
           <div className="text-center mb-8">
-            <div
-              className="inline-block px-8 py-3 rounded-lg"
+            <span
               style={{
+                display: 'inline-block',
                 backgroundColor: '#081E3F',
                 color: '#ffffff',
+                padding: '12px 32px',
+                borderRadius: '8px',
+                fontSize: '1.5rem',
+                fontWeight: '600',
                 WebkitPrintColorAdjust: 'exact',
                 printColorAdjust: 'exact',
               }}
             >
-              <h3 className="text-2xl font-semibold" style={{ color: '#ffffff' }}>
-                {isEditing ? (
-                  <>
-                    Office Hours for{' '}
-                    <input
-                      type="text"
-                      value={editData.semester}
-                      onChange={(e) => updateField('semester', e.target.value)}
-                      style={{ ...editInputStyle, color: '#000000' }}
-                    />
-                  </>
-                ) : (
-                  <>Office Hours for {displayData.semester}</>
-                )}
-              </h3>
-            </div>
+              {isEditing ? (
+                <>
+                  Office Hours for{' '}
+                  <input
+                    type="text"
+                    value={editData.semester}
+                    onChange={(e) => updateField('semester', e.target.value)}
+                    style={{ ...editInputStyle, color: '#000000' }}
+                  />
+                </>
+              ) : (
+                `Office Hours for ${displayData.semester}`
+              )}
+            </span>
           </div>
 
           {/* Office Hours Schedule */}
