@@ -30,7 +30,6 @@ export default function SignCarousel({
 }: SignCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isExporting, setIsExporting] = useState(false);
-  const [showHeader, setShowHeader] = useState(true);
   const signRefs = useRef<Map<number, HTMLDivElement>>(new Map());
 
   const setSignRef = useCallback((index: number, element: HTMLDivElement | null) => {
@@ -51,10 +50,6 @@ export default function SignCarousel({
 
   const goToIndex = (index: number) => {
     setCurrentIndex(index);
-  };
-
-  const toggleHeader = () => {
-    setShowHeader((prev) => !prev);
   };
 
   const handlePrint = () => {
@@ -275,8 +270,6 @@ export default function SignCarousel({
           professor={currentProfessor}
           onUpdate={(updated) => onUpdateProfessor(currentIndex, updated)}
           ref={(el) => setSignRef(currentIndex, el)}
-          showHeader={showHeader}
-          onToggleHeader={toggleHeader}
         />
       </div>
 
@@ -288,7 +281,6 @@ export default function SignCarousel({
               key={professor.id}
               professor={professor}
               showEditButton={false}
-              showHeader={showHeader}
               ref={(el) => setSignRef(index, el)}
             />
           ) : null

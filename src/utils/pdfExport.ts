@@ -165,14 +165,34 @@ export function printElement(element: HTMLElement): void {
         <title>Office Hours Sign</title>
         <style>
           ${styles}
+
+          * {
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+            color-adjust: exact !important;
+          }
+
+          body {
+            margin: 0;
+            padding: 20px;
+            font-family: Georgia, serif;
+          }
+
+          .sign-card {
+            page-break-inside: avoid;
+            margin: 0 auto;
+          }
+
           @media print {
             body {
               margin: 0;
               padding: 0;
             }
-            .sign-card {
-              page-break-inside: avoid;
-              margin: 0 auto;
+
+            * {
+              -webkit-print-color-adjust: exact !important;
+              print-color-adjust: exact !important;
+              color-adjust: exact !important;
             }
           }
         </style>
