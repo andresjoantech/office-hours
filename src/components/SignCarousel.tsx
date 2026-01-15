@@ -7,7 +7,6 @@ import {
   ChevronLeft,
   ChevronRight,
   Download,
-  Printer,
   FileDown,
   Archive,
 } from 'lucide-react';
@@ -16,7 +15,6 @@ import {
   exportAllSignsToPdf,
   exportAllSignsAsZip,
   downloadBlob,
-  printElement,
 } from '@/utils/pdfExport';
 
 interface SignCarouselProps {
@@ -50,13 +48,6 @@ export default function SignCarousel({
 
   const goToIndex = (index: number) => {
     setCurrentIndex(index);
-  };
-
-  const handlePrint = () => {
-    const element = signRefs.current.get(currentIndex);
-    if (element) {
-      printElement(element);
-    }
   };
 
   const handleDownloadCurrent = async () => {
@@ -170,16 +161,6 @@ export default function SignCarousel({
 
         {/* Action Buttons */}
         <div className="flex items-center gap-2">
-          <button
-            onClick={handlePrint}
-            disabled={isExporting}
-            className="flex items-center gap-2 px-4 py-2 rounded-lg transition-colors disabled:opacity-50"
-            style={{ backgroundColor: '#f3f4f6' }}
-            title="Print current sign"
-          >
-            <Printer size={18} />
-            <span className="hidden sm:inline">Print</span>
-          </button>
           <button
             onClick={handleDownloadCurrent}
             disabled={isExporting}

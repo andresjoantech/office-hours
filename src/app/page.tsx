@@ -150,7 +150,7 @@ export default function Home() {
               <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 {[
                   { title: 'QR Code Support', desc: 'Automatically generates QR codes for online meeting links' },
-                  { title: 'Print Ready', desc: 'Signs are formatted to fit standard letter-size paper' },
+                  { title: 'PDF Export', desc: 'Download signs as PDF files ready for printing' },
                   { title: 'Bulk Export', desc: 'Download all signs as a single PDF or individual images' },
                   { title: 'Edit In-Place', desc: 'Make corrections directly on the sign preview' },
                 ].map((feature, i) => (
@@ -189,7 +189,7 @@ export default function Home() {
                 Create Your Office Hours Sign
               </h2>
               <p className="text-gray-600">
-                Fill in your information below to generate a printable sign
+                Fill in your information below to generate your sign
               </p>
             </div>
             <div className="bg-white rounded-2xl shadow-lg p-8">
@@ -209,7 +209,7 @@ export default function Home() {
               </h2>
               <p className="text-gray-600">
                 {professors.length === 1
-                  ? 'Review and download or print your sign'
+                  ? 'Review and download your sign'
                   : 'Navigate through signs, edit as needed, and export'}
               </p>
             </div>
