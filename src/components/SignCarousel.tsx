@@ -30,6 +30,7 @@ export default function SignCarousel({
 }: SignCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isExporting, setIsExporting] = useState(false);
+  const [showHeader, setShowHeader] = useState(true);
   const signRefs = useRef<Map<number, HTMLDivElement>>(new Map());
 
   const setSignRef = useCallback((index: number, element: HTMLDivElement | null) => {
@@ -50,6 +51,10 @@ export default function SignCarousel({
 
   const goToIndex = (index: number) => {
     setCurrentIndex(index);
+  };
+
+  const toggleHeader = () => {
+    setShowHeader((prev) => !prev);
   };
 
   const handlePrint = () => {
@@ -139,27 +144,29 @@ export default function SignCarousel({
   return (
     <div className="w-full">
       {/* Navigation Header */}
-      <div className="flex items-center justify-between mb-6 bg-white rounded-lg shadow p-4">
+      <div className="flex items-center justify-between mb-6 rounded-lg shadow p-4" style={{ backgroundColor: '#ffffff' }}>
         <div className="flex items-center gap-4">
           <button
             onClick={goToPrevious}
-            className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
+            className="p-2 rounded-full transition-colors"
+            style={{ backgroundColor: '#f3f4f6' }}
             aria-label="Previous sign"
           >
             <ChevronLeft size={24} />
           </button>
           <div className="text-center">
-            <p className="text-sm text-gray-500">Professor</p>
+            <p className="text-sm" style={{ color: '#6b7280' }}>Professor</p>
             <p className="font-semibold text-lg">
               {currentProfessor.firstName} {currentProfessor.lastName}
             </p>
-            <p className="text-sm text-gray-400">
+            <p className="text-sm" style={{ color: '#9ca3af' }}>
               {currentIndex + 1} of {professors.length}
             </p>
           </div>
           <button
             onClick={goToNext}
-            className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
+            className="p-2 rounded-full transition-colors"
+            style={{ backgroundColor: '#f3f4f6' }}
             aria-label="Next sign"
           >
             <ChevronRight size={24} />
@@ -171,7 +178,8 @@ export default function SignCarousel({
           <button
             onClick={handlePrint}
             disabled={isExporting}
-            className="flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors disabled:opacity-50"
+            className="flex items-center gap-2 px-4 py-2 rounded-lg transition-colors disabled:opacity-50"
+            style={{ backgroundColor: '#f3f4f6' }}
             title="Print current sign"
           >
             <Printer size={18} />
@@ -180,7 +188,8 @@ export default function SignCarousel({
           <button
             onClick={handleDownloadCurrent}
             disabled={isExporting}
-            className="flex items-center gap-2 px-4 py-2 bg-blue-500 text-white hover:bg-blue-600 rounded-lg transition-colors disabled:opacity-50"
+            className="flex items-center gap-2 px-4 py-2 text-white rounded-lg transition-colors disabled:opacity-50"
+            style={{ backgroundColor: '#3b82f6' }}
             title="Download current sign as PDF"
           >
             <Download size={18} />
@@ -191,17 +200,21 @@ export default function SignCarousel({
             <div className="relative group">
               <button
                 disabled={isExporting}
-                className="flex items-center gap-2 px-4 py-2 bg-green-500 text-white hover:bg-green-600 rounded-lg transition-colors disabled:opacity-50"
+                className="flex items-center gap-2 px-4 py-2 text-white rounded-lg transition-colors disabled:opacity-50"
+                style={{ backgroundColor: '#22c55e' }}
                 title="Bulk download options"
               >
                 <FileDown size={18} />
                 <span className="hidden sm:inline">Bulk Download</span>
               </button>
-              <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-20">
+              <div className="absolute right-0 mt-2 w-48 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-20" style={{ backgroundColor: '#ffffff', border: '1px solid #e5e7eb' }}>
                 <button
                   onClick={handleDownloadAllPdf}
                   disabled={isExporting}
-                  className="flex items-center gap-2 w-full px-4 py-2 hover:bg-gray-100 rounded-t-lg"
+                  className="flex items-center gap-2 w-full px-4 py-2 rounded-t-lg"
+                  style={{ backgroundColor: 'transparent' }}
+                  onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#f3f4f6'}
+                  onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
                 >
                   <FileDown size={16} />
                   All as single PDF
@@ -209,7 +222,10 @@ export default function SignCarousel({
                 <button
                   onClick={handleDownloadAllZip}
                   disabled={isExporting}
-                  className="flex items-center gap-2 w-full px-4 py-2 hover:bg-gray-100 rounded-b-lg"
+                  className="flex items-center gap-2 w-full px-4 py-2 rounded-b-lg"
+                  style={{ backgroundColor: 'transparent' }}
+                  onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#f3f4f6'}
+                  onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
                 >
                   <Archive size={16} />
                   All as ZIP (PNGs)
@@ -222,18 +238,18 @@ export default function SignCarousel({
 
       {/* Professor Quick Navigation */}
       {professors.length > 1 && (
-        <div className="mb-6 bg-white rounded-lg shadow p-4">
-          <p className="text-sm text-gray-500 mb-2">Quick Navigation</p>
+        <div className="mb-6 rounded-lg shadow p-4" style={{ backgroundColor: '#ffffff' }}>
+          <p className="text-sm mb-2" style={{ color: '#6b7280' }}>Quick Navigation</p>
           <div className="flex flex-wrap gap-2 max-h-32 overflow-y-auto">
             {professors.map((prof, index) => (
               <button
                 key={prof.id}
                 onClick={() => goToIndex(index)}
-                className={`px-3 py-1 text-sm rounded-full transition-colors ${
-                  index === currentIndex
-                    ? 'bg-[#081E3F] text-white'
-                    : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
-                }`}
+                className="px-3 py-1 text-sm rounded-full transition-colors"
+                style={{
+                  backgroundColor: index === currentIndex ? '#081E3F' : '#f3f4f6',
+                  color: index === currentIndex ? '#ffffff' : '#374151',
+                }}
               >
                 {prof.lastName}, {prof.firstName.charAt(0)}.
               </button>
@@ -244,9 +260,9 @@ export default function SignCarousel({
 
       {/* Loading Overlay */}
       {isExporting && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg p-6 flex items-center gap-4">
-            <div className="animate-spin rounded-full h-8 w-8 border-4 border-blue-500 border-t-transparent"></div>
+        <div className="fixed inset-0 flex items-center justify-center z-50" style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
+          <div className="rounded-lg p-6 flex items-center gap-4" style={{ backgroundColor: '#ffffff' }}>
+            <div className="animate-spin rounded-full h-8 w-8" style={{ border: '4px solid #3b82f6', borderTopColor: 'transparent' }}></div>
             <p className="text-lg">Generating export...</p>
           </div>
         </div>
@@ -259,6 +275,8 @@ export default function SignCarousel({
           professor={currentProfessor}
           onUpdate={(updated) => onUpdateProfessor(currentIndex, updated)}
           ref={(el) => setSignRef(currentIndex, el)}
+          showHeader={showHeader}
+          onToggleHeader={toggleHeader}
         />
       </div>
 
@@ -270,6 +288,7 @@ export default function SignCarousel({
               key={professor.id}
               professor={professor}
               showEditButton={false}
+              showHeader={showHeader}
               ref={(el) => setSignRef(index, el)}
             />
           ) : null
@@ -283,9 +302,10 @@ export default function SignCarousel({
             <button
               key={index}
               onClick={() => goToIndex(index)}
-              className={`w-3 h-3 rounded-full transition-colors ${
-                index === currentIndex ? 'bg-[#081E3F]' : 'bg-gray-300 hover:bg-gray-400'
-              }`}
+              className="w-3 h-3 rounded-full transition-colors"
+              style={{
+                backgroundColor: index === currentIndex ? '#081E3F' : '#d1d5db',
+              }}
               aria-label={`Go to sign ${index + 1}`}
             />
           ))}

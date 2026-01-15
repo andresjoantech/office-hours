@@ -30,7 +30,7 @@ export default function QRCode({ url, size = 120, className = '' }: QRCodeProps)
   return (
     <div className={`flex flex-col items-center ${className}`}>
       <canvas ref={canvasRef} />
-      <p className="text-xs text-gray-600 mt-1 text-center max-w-[200px] break-all">
+      <p className="text-xs mt-1 text-center max-w-[200px] break-all" style={{ color: '#4b5563' }}>
         {url}
       </p>
     </div>
