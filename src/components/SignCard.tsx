@@ -269,12 +269,6 @@ const SignCard = forwardRef<HTMLDivElement, SignCardProps>(
             </div>
           </div>
 
-          {/* Footer */}
-          <div className="mt-8 pt-4 text-center" style={{ borderTop: '1px solid #e5e7eb' }}>
-            <p className="text-sm" style={{ color: '#6b7280' }}>
-              Department of Teaching and Learning
-            </p>
-          </div>
         </div>
       </div>
     );

@@ -109,14 +109,14 @@ export default function ManualForm({ onSubmit, initialData }: ManualFormProps) {
       <div>
         <label className="flex items-center gap-2 text-sm font-medium text-gray-700 mb-2">
           <Mail size={16} />
-          FIU Email *
+          Email *
         </label>
         <input
           type="email"
           value={formData.email}
           onChange={(e) => updateField('email', e.target.value)}
           className={inputClasses('email')}
-          placeholder="jdoe@fiu.edu"
+          placeholder="professor@university.edu"
         />
         {errors.email && (
           <p className="text-red-500 text-sm mt-1">{errors.email}</p>
@@ -196,7 +196,7 @@ Friday: 10:00 AM - 11:00 AM"
           value={formData.meetingLink || ''}
           onChange={(e) => updateField('meetingLink', e.target.value)}
           className={inputClasses('meetingLink')}
-          placeholder="https://fiu.zoom.us/j/1234567890"
+          placeholder="https://zoom.us/j/1234567890"
         />
         <p className="text-gray-500 text-sm mt-1">
           This will be converted to a QR code on the sign.

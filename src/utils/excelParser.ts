@@ -40,7 +40,7 @@ export function parseExcelFile(file: File): Promise<ProfessorData[]> {
         const columnIndices = {
           firstName: findColumnIndex(headers, [EXCEL_COLUMN_MAPPINGS.firstName, 'first name', 'firstname', 'name - first']),
           lastName: findColumnIndex(headers, [EXCEL_COLUMN_MAPPINGS.lastName, 'last name', 'lastname', 'name - last']),
-          email: findColumnIndex(headers, [EXCEL_COLUMN_MAPPINGS.email, 'email', 'fiu email', 'your fiu email']),
+          email: findColumnIndex(headers, [EXCEL_COLUMN_MAPPINGS.email, 'email', 'your email']),
           semester: findColumnIndex(headers, [EXCEL_COLUMN_MAPPINGS.semester, 'semester', 'which semester']),
           officeLocation: findColumnIndex(headers, [EXCEL_COLUMN_MAPPINGS.officeLocation, 'office', 'building', 'room', 'location']),
           officeHours: findColumnIndex(headers, [EXCEL_COLUMN_MAPPINGS.officeHours, 'office hours', 'hours', 'declare your office hours']),

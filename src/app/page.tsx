@@ -65,7 +65,7 @@ export default function Home() {
                   Office Hours Sign Builder
                 </h1>
                 <p className="text-sm text-gray-300 hidden sm:block">
-                  Florida International University - Department of Teaching and Learning
+                  Create professional office hours signs
                 </p>
               </div>
             </div>
@@ -225,10 +225,7 @@ export default function Home() {
       <footer className="mt-16 py-8 border-t border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-500 text-sm">
           <p>
-            Office Hours Sign Builder - Department of Teaching and Learning
-          </p>
-          <p className="mt-1">
-            Florida International University
+            Office Hours Sign Builder
           </p>
         </div>
       </footer>

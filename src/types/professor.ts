@@ -17,7 +17,7 @@ export interface EditableProfessorData extends ProfessorData {
 export const EXCEL_COLUMN_MAPPINGS = {
   firstName: 'Name - First',
   lastName: 'Name - Last',
-  email: 'Your FIU Email',
+  email: 'Email',
   semester: 'For which semester you are declaring Office Hours?',
   officeLocation: 'Where is your office (building and room number)? If you don\'t have an office, specify the place where the Office Hours will be held',
   officeHours: 'Please declare your Office Hours. If any timeframe is offered online, please specify so in parenthesis (Online)',

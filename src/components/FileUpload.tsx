@@ -138,7 +138,7 @@ export default function FileUpload({ onUploadSuccess }: FileUploadProps) {
         <ul className="text-sm text-gray-600 space-y-1 list-disc list-inside">
           <li>Name - First</li>
           <li>Name - Last</li>
-          <li>Your FIU Email</li>
+          <li>Email</li>
           <li>For which semester you are declaring Office Hours?</li>
           <li>Where is your office (building and room number)?</li>
           <li>Please declare your Office Hours</li>

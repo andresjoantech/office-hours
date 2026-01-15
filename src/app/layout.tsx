@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Office Hours Sign Builder | FIU Engineering",
-  description: "Create professional office hours signs for FIU College of Engineering and Computing professors. Upload a spreadsheet for bulk generation or create individual signs.",
-  keywords: ["FIU", "Florida International University", "office hours", "professor", "sign builder", "engineering"],
+  title: "Office Hours Sign Builder",
+  description: "Create professional office hours signs for professors. Upload a spreadsheet for bulk generation or create individual signs.",
+  keywords: ["office hours", "professor", "sign builder", "academic"],
 };
 
 export default function RootLayout({
