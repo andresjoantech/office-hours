@@ -88,7 +88,6 @@ const SignCard = forwardRef<HTMLDivElement, SignCardProps>(
           className="sign-card rounded-lg shadow-lg p-8 max-w-[8.5in] mx-auto"
           style={{
             width: '8.5in',
-            minHeight: '11in',
             fontFamily: 'Georgia, serif',
             backgroundColor: '#ffffff',
             border: '4px solid #081E3F',
@@ -132,6 +131,7 @@ const SignCard = forwardRef<HTMLDivElement, SignCardProps>(
                 borderRadius: '8px',
                 fontSize: '1.5rem',
                 fontWeight: '600',
+                textAlign: 'center',
                 WebkitPrintColorAdjust: 'exact',
                 printColorAdjust: 'exact',
               }}

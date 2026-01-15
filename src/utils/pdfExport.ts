@@ -166,16 +166,25 @@ export function printElement(element: HTMLElement): void {
         <style>
           ${styles}
 
+          @page {
+            margin: 0;
+            size: auto;
+          }
+
           * {
             -webkit-print-color-adjust: exact !important;
             print-color-adjust: exact !important;
             color-adjust: exact !important;
           }
 
-          body {
+          html, body {
             margin: 0;
-            padding: 20px;
+            padding: 0;
             font-family: Georgia, serif;
+          }
+
+          body {
+            padding: 0.5in;
           }
 
           .sign-card {
@@ -184,9 +193,13 @@ export function printElement(element: HTMLElement): void {
           }
 
           @media print {
-            body {
+            html, body {
               margin: 0;
               padding: 0;
+            }
+
+            body {
+              padding: 0.25in;
             }
 
             * {
